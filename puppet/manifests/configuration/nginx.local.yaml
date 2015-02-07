@@ -40,3 +40,10 @@ sensu::rabbitmq_ssl_cert_chain:  "puppet:///modules/secure/rabbitmq/cert.pem"
 
 # See https://github.com/sensu/sensu-puppet/issues/298
 sensu::sensu_plugin_version: present
+
+
+sensu::check:
+  nginx:
+    command: '/opt/sensu-plugins/sensu-community-plugins-master/plugins/nginx/nginx-metrics.rb'
+    handlers: 'default'
+    subscribers: 'base'

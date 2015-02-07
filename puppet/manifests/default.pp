@@ -16,6 +16,7 @@ node default inherits basenode {
 
   # Create the classes defined by the yaml
   hiera_include( 'classes' )
+  create_resources( 'sensu::check', hiera_hash('sensu::check', {}) )
 
 
   package { 'wget':
