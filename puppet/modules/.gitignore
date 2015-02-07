@@ -1,0 +1,6 @@
+# The modules dir is required during vagrant startup, so
+# ensure it exists by keeping a gitignore that ignores everything
+*
+
+# apart from itself
+!.gitignore
