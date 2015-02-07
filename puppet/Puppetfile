@@ -1,0 +1,14 @@
+forge 'http://forge.puppetlabs.com'
+
+# You can include puppet modules dynamically using the following 
+# syntax examples:
+
+# mod 'puppetlabs/activemq', '0.3.1'
+# mod 'myrepo/module', :git => "git://github.com/myrepo/module.git"
+# mod 'myrepo/module', :git => "git://github.com/myrepo/module.git",  :ref => '0.0.3'
+# mod 'myrepo/module', :git => "git://github.com/myrepo/module.git",  :ref => 'my-branch'
+
+
+
+mod 'sensu/sensu'
+mod 'nanliu/staging'

@@ -1,0 +1,39 @@
+---
+#
+# Configuration for nginx
+# ---------
+# Author  : toby
+# Date    : 2015-02-07
+# --------
+# Enter any machine specific configuration you wish to include below
+# and it will be imported into hiera automatically when you run vagrant up
+#
+# You can access these variables from puppet using heira('variable')
+# See online hiera and puppet documentation for more information.
+
+
+# Include modules/classes in your VM using this declaration
+#classes:
+# - mymodule
+
+# More specific module configuration can be provided below.
+
+# example::config
+#   hostname: nginx
+#   colors:
+#      - blue
+#      - red
+
+
+classes:
+  - sensu
+
+sensu::install_repo: true
+sensu::purge_config: true
+sensu::rabbitmq_host: 192.168.59.103
+sensu::rabbitmq_password: password
+sensu::rabbitmq_port: 5671
+sensu::rabbitmq_vhost: '/sensu'
+sensu::rabbitmq_ssl: true
+sensu::rabbitmq_ssl_private_key: "puppet:///modules/secure/rabbitmq/key.pem"
+sensu::rabbitmq_ssl_cert_chain:  "puppet:///modules/secure/rabbitmq/cert.pem"

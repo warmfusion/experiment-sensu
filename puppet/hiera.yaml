@@ -1,0 +1,13 @@
+---
+:backends: yaml
+:yaml:
+  :datadir: "%{settings::manifestdir}/configuration"
+#  :datadir: "manifests/configuration"
+#  :datadir: "/vagrant/puppet/manifests/configuration"
+
+:hierarchy:
+  - "%{::fqdn}"
+  - "%{::environment}"
+  - "virtual_%{::is_virtual}"
+  - common
+:logger: console
