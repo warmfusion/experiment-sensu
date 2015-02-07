@@ -16,7 +16,14 @@ node default inherits basenode {
 
   # Create the classes defined by the yaml
   hiera_include( 'classes' )
+
+  # Include any sensu checks we've had configured
   create_resources( 'sensu::check', hiera_hash('sensu::check', {}) )
+  create_resources( 'sensu::handler', hiera_hash('sensu::handler', {}) )
+
+#  sensu::handler { 'default':
+#    command => 'mail -s \'sensu alert\' ops@foo.com',
+#  }
 
 
   package { 'wget':
@@ -39,23 +46,4 @@ node default inherits basenode {
     require => File['/opt/sensu-plugins'],
   } 
 
-#  sensu::handler { 'default':
-#    command => 'mail -s \'sensu alert\' ops@foo.com',
-#  }
-
-  sensu::check { 'check_disk':
-    command => '/opt/sensu-plugins/sensu-community-plugins-master/plugins/system/disk-metrics.rb',
-    handlers => 'default',
-    subscribers => 'base',
-  }
-  sensu::check { 'check_cpu':
-    command => '/opt/sensu-plugins/sensu-community-plugins-master/plugins/system/check-cpu.rb',
-    handlers => 'default',
-    subscribers => 'base',
-  }
-  sensu::check { 'check_load':
-    command => '/opt/sensu-plugins/sensu-community-plugins-master/plugins/system/check-load.rb',
-    handlers => 'default',
-    subscribers => 'base',
-  }
 }

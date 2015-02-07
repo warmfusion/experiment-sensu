@@ -1,2 +1,34 @@
 ---
 myvar: "test"
+
+
+# We always want these checks
+sensu::check:
+  check_disk:
+    command: '/opt/sensu-plugins/sensu-community-plugins-master/plugins/system/disk-metrics.rb'
+    handlers: 'default'
+    subscribers: 'base'
+    type: 'metric'
+  check_cpu:
+    command: '/opt/sensu-plugins/sensu-community-plugins-master/plugins/system/cpu-metrics.rb'
+    handlers: 'default'
+    subscribers: 'base'
+    type: 'metric'
+  check_load:
+    command: '/opt/sensu-plugins/sensu-community-plugins-master/plugins/system/load-metrics.rb'
+    handlers: 
+      - default
+      - critical
+    subscribers: 'base'
+    type: 'metric'
+
+
+sensu::handler:
+  default:
+    command: 'tee -a /var/log/sensu-event.log'
+    type: pipe
+  critical:
+    command: 'mailx -s “Crazy Fail” megafail@example.com'
+    type: pipe
+    severities: 
+        - critical

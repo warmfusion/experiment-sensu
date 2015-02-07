@@ -47,3 +47,4 @@ sensu::check:
     command: '/opt/sensu-plugins/sensu-community-plugins-master/plugins/nginx/nginx-metrics.rb'
     handlers: 'default'
     subscribers: 'base'
+    type: 'metric'  

@@ -20,6 +20,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     raise 'vagrant-librarian-puppet is not installed! Please run \'vagrant plugin install vagrant-librarian-puppet\''
   end
   config.librarian_puppet.puppetfile_dir = "puppet"
+  config.librarian_puppet.placeholder_filename  = '.gitignore'
 
   # config.vm.network "forwarded_port", guest: 80, host: 8080
   # config.vm.network "private_network", ip: "192.168.33.10"
