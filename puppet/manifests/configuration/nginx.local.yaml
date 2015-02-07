@@ -37,3 +37,6 @@ sensu::rabbitmq_vhost: '/sensu'
 sensu::rabbitmq_ssl: true
 sensu::rabbitmq_ssl_private_key: "puppet:///modules/secure/rabbitmq/key.pem"
 sensu::rabbitmq_ssl_cert_chain:  "puppet:///modules/secure/rabbitmq/cert.pem"
+
+# See https://github.com/sensu/sensu-puppet/issues/298
+sensu::sensu_plugin_version: present
