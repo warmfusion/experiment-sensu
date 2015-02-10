@@ -12,3 +12,4 @@ forge 'http://forge.puppetlabs.com'
 
 mod 'sensu/sensu'
 mod 'nanliu/staging'
+mod 'puppetlabs/nginx'
