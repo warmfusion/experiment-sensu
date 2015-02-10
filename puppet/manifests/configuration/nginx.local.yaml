@@ -27,6 +27,7 @@
 
 classes:
   - sensu
+  - nginx
 
 sensu::install_repo: true
 sensu::purge_config: true
