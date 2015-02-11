@@ -8,7 +8,6 @@ forge 'http://forge.puppetlabs.com'
 # mod 'myrepo/module', :git => "git://github.com/myrepo/module.git",  :ref => '0.0.3'
 # mod 'myrepo/module', :git => "git://github.com/myrepo/module.git",  :ref => 'my-branch'
 
-
-
 mod 'sensu/sensu'
 mod 'nanliu/staging'
+mod 'jfryman/nginx'
